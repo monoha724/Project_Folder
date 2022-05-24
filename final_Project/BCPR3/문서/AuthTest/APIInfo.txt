@@ -1,0 +1,11 @@
+naver
+
+Client ID
+1e16I888ZQ5DJ1r2T29_
+
+Client Secret
+FFl4xo3Bi5
+
+
+google
+{"web":{"client_id":"656326371866-mlhedf29e79rvoam3d1v08u1u9mgfjdb.apps.googleusercontent.com","project_id":"dmtt-341400","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"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","redirect_uris":["http://localhost:8100/auth/google/callback"],"javascript_origins":["http://localhost:8100"]}}

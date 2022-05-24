@@ -1,0 +1,7 @@
+Naver CLOVA OCR
+
+Secret Key
+TklYTGpycXh2d2lXVGRFR2JQZ1ppcURXdFhDeHNiYkc=
+
+APIGW Invoke URL
+https://dakj3dl6zh.apigw.ntruss.com/custom/v1/14192/76e38e6cfacf0c4bdc5f9ca5d9b1b36d09f196b345d859b568020c6729d2c972/general

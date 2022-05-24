@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>룸메이트 - 방을 구하는 가장 쉬운 방법</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles2.css" rel="stylesheet" />
+<link href="css/styles3.css" rel="stylesheet" />
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=z4e5yx2h0t"></script>
+</head>
+<body>
+	<!--상단 네비게이션 메뉴-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container px-4 px-lg-5">
+			<a class="navbar-brand" href="01_index.html">룸메이트</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">원룸</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="02_onroomPage.html">방
+									찾기</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">찜한 매물</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">방 내놓기</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">투룸
+							/ 빌라</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="04_tworoomPage.html">투룸
+									/ 빌라 찾기</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">찜한 매물</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">투룸 / 빌라 내놓기</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">아파트</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="06_aptPage.html">아파트
+									매매</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">전세 / 월세</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">신축분양</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">커뮤니티</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="10_freeboard.jsp">자유게시판</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">인테리어게시판</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">법률상담게시판</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">부동산정보게시판</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">고객센터</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="13_qna.html">자주 묻는 질문</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="14_detail_serch.html"
+						role="button" aria-expanded="false">지도검색</a>
+					</li>
+				</ul>
+				<form class="d-flex" action="09_signup.html">
+					<button class="btn btn-outline-dark">회원가입</button>
+				</form>
+				<form class="d-flex" action="08_login.html">
+					<button class="btn btn-outline-dark" type="submit"
+						href="08_login.html">로그인</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<!--상단 메인 배너-->
+	<div class="bg-dark py-6">
+		<!--bg-dark가 메인 배너 색상-->
+		<img src="img/hito.png" class="main-person">
+		<div class="container px-4 px-lg-5 my-5 main-banner-text">
+			<div class="text-start text-white">
+				<h1 class="display-6 fw-bolder">
+					방 찾으러 멀리 갈 필요 있어?<br>가까운 <span style="color: yellow;">'룸메이트'</span>에게
+					물어봐!
+				</h1>
+				<br>
+				<p class="lead fw-normal text-white-50 mb-0">방을 찾는 가장 쉬운 방법,
+					룸메이트</p>
+			</div>
+		</div>
+	</div>
+
+	<!--지도검색 섹션-->
+	<section class="py-3">
+		<div class="my-5">
+			<div>
+				<div>
+					<h4 class="today-fav2">지도검색</h4>
+				</div>
+			</div>
+
+			<div class="container my-3 px-4 px-lg-5 pt-4" style="display: block;">
+
+				<div class="btn-group">
+					<input type="text" id="address-sc" placeholder="주소검색">
+					<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+					<script>
+						window.onload = function(){
+						document.getElementById("address-sc").addEventListener("click", function(){
+							new daum.Postcode({
+									oncomplete: function(data) { //선택시 입력값 세팅
+										document.getElementById("address-sc").value = data.address; // 주소 넣기
+										document.querySelector("input[id=address-sc]").focus(); //상세입력 포커싱
+									}
+								}).open();
+						});
+					}
+					</script>
+					<button class="btn-group" type="button" id="sc-btn">검색</button>
+				</div>
+				<div class="btn-group">
+					<button class="btn btn-sm dropdown-toggle dts-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					방 종류
+					</button>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;전체</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;원룸</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;투룸 / 빌라</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;아파트</li>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn dts-btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					거래유형
+					</button>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;전체</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;월세</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;전세</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;매매</li>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn dts-btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					관리비
+					</button>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;전체</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;5만원 이하</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;10만원 이하</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;15만원 이하</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;15만원 초과</li>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn dts-btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					사용승인일
+					</button>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;전체</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;1년 이내</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;5년 이내</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;10년 이내</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;15년 이내</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;15년 이상</li>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn dts-btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					층 수
+					</button>
+					<ul class="dropdown-menu">
+						<div style="display: flex;">
+							<div>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;전체</li>
+								<li><hr class="dropdown-divider"></li>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;1층</li>
+								<li><hr class="dropdown-divider"></li>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;2층</li>
+								<li><hr class="dropdown-divider"></li>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;3층</li>
+								<li><hr class="dropdown-divider"></li>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;4층</li>
+							</div>
+							<div>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;5층</li>
+								<li><hr class="dropdown-divider"></li>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;6층</li>
+								<li><hr class="dropdown-divider"></li>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;7층 이상</li>
+								<li><hr class="dropdown-divider"></li>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;반지층</li>
+								<li><hr class="dropdown-divider"></li>
+								<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;옥탑방</li>
+							</div>
+						</div>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn dts-btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					방 구조
+					</button>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;주방 분리형(1.5룸)</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;복층</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;투룸</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;쓰리룸 이상</li>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn dts-btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					세대 수
+					</button>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;전체</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;100세대 이하</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;100세대 이상</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;500세대 이상</li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="dropdown-item"><input type="checkbox" value="원룸">&nbsp;&nbsp;1000세대 이상</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="container px-4 px-lg-5" style="display: flex; justify-content: space-between;">
+				<div class="me-4" style="width: 30%; overflow: auto; height: 700px;">
+					<div><!--매물 3개-->
+						<div class="col mb-1">
+							<div class="card h-100">
+								<!-- Product image-->
+								<a href="/03_onroomPage_Detail.html">
+									<img class="card-img-top" src="img/bedroom-1285156.jpg" alt="..." />
+								</a>
+								<!-- Product details-->
+								<div class="card-body p-4">
+									<div class="text-center">
+										<!-- Product name-->
+										<h5 class="fw-bolder">사당동 원룸</h5>
+										<!-- Product price-->
+										월세 5000 / 50만원
+										<!-- Product sub explain-->
+										<br> <span class="product-sub-exp"> 초고속 인터넷 설치, 주차장
+											이용 가능 </span>
+									</div>
+								</div>
+								<!-- Product actions-->
+								<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+									<div class="text-center">
+										<a class="btn btn-outline-dark mt-auto"
+											href="03_onroomPage_Detail.html">자세히 보기</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col mb-1">
+							<div class="card h-100">
+								<!-- Product image-->
+								<a href="03_onroomPage_Detail.html">
+									<img class="card-img-top" src="img/bedroom-1285156.jpg" alt="..." />
+								</a>
+								<!-- Product details-->
+								<div class="card-body p-4">
+									<div class="text-center">
+										<!-- Product name-->
+										<h5 class="fw-bolder">사당동 원룸</h5>
+										<!-- Product price-->
+										월세 5000 / 50만원
+										<!-- Product sub explain-->
+										<br> <span class="product-sub-exp"> 초고속 인터넷 설치, 주차장
+											이용 가능 </span>
+									</div>
+								</div>
+								<!-- Product actions-->
+								<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+									<div class="text-center">
+										<a class="btn btn-outline-dark mt-auto"
+											href="03_onroomPage_Detail.html">자세히 보기</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col mb-1">
+							<div class="card h-100">
+								<!-- Product image-->
+								<a href="03_onroomPage_Detail.html">
+									<img class="card-img-top" src="img/bedroom-1285156.jpg" alt="..." />
+								</a>
+								<!-- Product details-->
+								<div class="card-body p-4">
+									<div class="text-center">
+										<!-- Product name-->
+										<h5 class="fw-bolder">사당동 원룸</h5>
+										<!-- Product price-->
+										월세 5000 / 50만원
+										<!-- Product sub explain-->
+										<br> <span class="product-sub-exp"> 초고속 인터넷 설치, 주차장
+											이용 가능 </span>
+									</div>
+								</div>
+								<!-- Product actions-->
+								<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+									<div class="text-center">
+										<a class="btn btn-outline-dark mt-auto"
+											href="03_onroomPage_Detail.html">자세히 보기</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--지도API-->
+				<div style="width: 70%">
+					<div id="map" style="height: 100%;"></div>
+					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1cda2c3f9e06c8606beebad8a4c16b0b&libraries=services"></script>
+					<script>
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+						mapOption = {
+							center: new kakao.maps.LatLng(37.50404848711977, 127.04280811530194), // 지도의 중심좌표
+							level: 3 // 지도의 확대 레벨
+						};  
+
+					// 지도를 생성합니다    
+					var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+					// 주소-좌표 변환 객체를 생성합니다
+					var geocoder = new kakao.maps.services.Geocoder();
+
+					document.getElementById("sc-btn").addEventListener("click", function(){
+						// 주소로 좌표를 검색합니다
+						geocoder.addressSearch(document.getElementById("address-sc").value, function(result, status) {
+
+						// 정상적으로 검색이 완료됐으면 
+							if (status === kakao.maps.services.Status.OK) {
+
+								var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+								// 결과값으로 받은 위치를 마커로 표시합니다
+								var marker = new kakao.maps.Marker({
+									map: map,
+									position: coords
+								});
+
+								// 인포윈도우로 장소에 대한 설명을 표시합니다
+								var infowindow = new kakao.maps.InfoWindow({
+									content: '<div style="width:150px;text-align:center;padding:6px 0;">검색결과</div>'
+								});
+								infowindow.open(map, marker);
+
+								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+								map.setCenter(coords);
+							} 
+						});
+					});
+					    
+					</script>
+				</div>
+				<!--지도API끝-->
+			</div>
+	</section>
+	<hr class="container px-4 px-lg-5">
+	<!-- Footer-->
+	<footer class="container px-0 py-5 gx-1 gx-4 gx-lg-5 bg-white">
+		<div class="px-0 px-5 gx-lg-5 bottom-site">
+			<div class="sv">
+				<p>고객센터&nbsp;1588-5353</p>
+				<p>9 : 30 ~ 18 : 00</p>
+				<p>(점심시간 13:00 ~ 14:00)</p>
+				<p>주말, 법정공휴일 휴무</p>
+				<a class="btn btn-outline-dark mt-auto qa-button" href="#">1:1
+					문의</a><br> <img src="img/0.브랜드로고.png" class="logo">
+			</div>
+			<div class="b0">
+				<!--공백 174px-->
+			</div>
+			<div class="b1">
+				<p class="bold">룸메이트</p>
+				<p>룸메이트 메인</p>
+				<p>원룸</p>
+				<p>투룸 / 빌라</p>
+				<p>아파트</p>
+				<p>커뮤니티</p>
+			</div>
+			<div class="b2">
+				<p class="bold">룸메이트 정보</p>
+				<p>서비스 소개</p>
+				<p>인재영입</p>
+				<p>룸메이트 PRESS</p>
+				<p>크레딧</p>
+			</div>
+			<div class="b3">
+				<p class="bold">관련사이트</p>
+				<p>룸메이트 유튜브</p>
+				<p>룸메이트 인스타그램</p>
+				<p>룸메이트 페이스북</p>
+				<p>룸메이트 블로그</p>
+				<p>룸메이트 카페</p>
+			</div>
+			<div class="b4">
+				<p class="bold">지원</p>
+				<p>공지사항</p>
+				<p>자주 묻는 질문</p>
+				<p>이용약관</p>
+				<p>개인정보처리지침</p>
+				<p>전문가 센터</p>
+				<p>사이트맵</p>
+			</div>
+		</div>
+		<hr class="footer-hr">
+		<div class="bottom-anounce">
+			<p class="copy1 m-0 text-center text-dark">(주)룸메이트 / 서울시 서초구
+				룸메이트로 1028 룸메빌딩 / 대표 : 강하종 / 개인정보관리책임자 : 김희태, 사유진, 신혜지 / 사업자등록번호 :
+				202-11-02814 / 통신판매업신고 : 2021-서울강남-211028호</p>
+			<p class="copy2 m-0">(주)룸메이트 사이트의 상품/판매회원/중개 서비스/거래 정보, 콘텐츠, UI
+				등에 대한 무단복제, 전송, 배포, 스크래핑 등의 행위는 저작권법, 콘텐츠산업 진흥법 등 관련법령에 의하여 엄격히
+				금지됩니다. [안내보]</p>
+			<p class="copy2 m-0">(주)룸메이트는 통신판매중개자이며, 통신판매의 당사자가 아닙니다. 상품,
+				상품정보, 거래에 관한 의무와 책임은 판매회원에게 있습니다. / Copyright &copy; 2021 roommate
+				Inc. All rights reserved from Bernie_Alex</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script src="js/scripts.js"></script>
+</body>
+</html>
